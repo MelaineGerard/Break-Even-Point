@@ -1,0 +1,71 @@
+import { Button, VerticalBox , LineEdit} from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+    in-out property<string> result: "";
+    callback request-calculate-roi(string, string, string);
+
+    title: "Calculateur de Seuil de Rentabilité";
+    icon: @image-url("../logo/logo.png");
+
+    background: #313e50;
+    GridLayout {
+        padding: 50px;
+        spacing: 25px;
+        Row {
+            Text {
+                text: "Calcule ton Seuil de Rentabilité";
+                horizontal-alignment: center;
+                color: white;
+                font-size: 24px;
+                font-weight: 900;
+            }
+        }
+
+        Row {
+            costPrice := LineEdit {
+                placeholder-text: "Coût de fabrication";
+                font-size: 20px;
+                height: 40px;
+            }
+        }
+
+        Row {
+
+            profitsPrice := LineEdit {
+                font-size: 20px;
+                placeholder-text: "Prix de vente";
+                height: 40px;
+
+            }
+        }
+
+        Row {
+
+            investPrice := LineEdit {
+                font-size: 20px;
+                placeholder-text: "Investissement initial";
+                height: 40px;
+
+            }
+        }
+        Row {
+            Button {
+                text: "Calculer";
+                primary: true;
+                height: 50px;
+                clicked => {
+                    root.request-calculate-roi(costPrice.text, profitsPrice.text, investPrice.text);
+                }
+            }
+        }
+
+        Row {
+            Text {
+                text: root.result;
+                horizontal-alignment: center;
+                color: white;
+                font-size: 24px;
+            }
+        }
+    }
+}

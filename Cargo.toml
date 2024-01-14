@@ -1,0 +1,25 @@
+[package]
+name = "break-even-calculator"
+version = "0.1.0"
+authors = ["Melaine Gérard <pro@melaine-gerard.fr>"]
+edition = "2021"
+build = "build.rs"
+description = "A simple break-even calculator"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+slint = "1.0"
+
+[build-dependencies]
+slint-build = "1.0"
+
+[package.metadata.bundle]
+name = "Break-even calculator"
+identifier = "fr.melaine.gerard.break.even.calculator"
+icon = ["logo/logo.png"]
+category = "Finance"
+short_description = "A simple break-even calculator"
+long_description = """
+A simple break-even calculator
+"""
+copyright = "Copyright (c) Melaine Gérard 2023. All rights reserved."
