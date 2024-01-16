@@ -37,4 +37,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Bundles-${{ matrix.os }}
-          path: target/release/bundle/**/
+          path: target/release/
